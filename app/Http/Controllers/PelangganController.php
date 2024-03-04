@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use RealRashid\SweetAlert\Facades\Alert;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -33,8 +33,8 @@ class PelangganController extends Controller
             'alamat' => $request->alamat,
         ]);
 
-        Alert::success('Success', 'Data Berhasil');
         
+
         return redirect('/pelanggan'); }
 
     public function tambahpelanggan()
