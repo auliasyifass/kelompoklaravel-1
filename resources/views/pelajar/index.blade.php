@@ -2,7 +2,8 @@
 
 @section('judul', 'Data Pelajar')
 
-@section('content')
+@section('content') 
+{{-- dan ini halaman admin  --}}
 <div class="p-3">
     <a href="{{ route('pelajar.create') }}" class="btn btn-primary my-3">Tambah Data Pelajar</a>
     <table id="example1" class="table table-bordered table-striped">

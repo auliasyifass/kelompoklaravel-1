@@ -41,6 +41,7 @@
           </div>
   
           @yield('contents')
+           {{-- untuk mengkombinasikan dengan blade --}}
   
           <!-- Content Row -->
   

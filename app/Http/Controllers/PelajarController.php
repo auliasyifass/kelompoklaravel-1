@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use RealRashid\SweetAlert\Facades\Alert;
+use RealRashid\SweetAlert\Facades\Alert as SweetAlert;
 use Illuminate\Http\Request;
 use illuminate\Support\Facades\DB;
 use App\Models\Pelajar;
@@ -16,7 +16,7 @@ class PelajarController extends Controller
 
     public function create()
     {
-        return view('pelajar.create');
+        return view('pelajar.tambahpelajar');
     }
 
     public function store(Request $request)
@@ -29,7 +29,7 @@ class PelajarController extends Controller
         ]);
 
         Pelajar::create($request->all());
-        Alert::success('Success', 'Data Berhasil');
+        SweetAlert::success('Success', 'Data Berhasil');
         return redirect()->route('pelajar.index')->with('success', 'Pelajar berhasil ditambahkan.');
     }
 
