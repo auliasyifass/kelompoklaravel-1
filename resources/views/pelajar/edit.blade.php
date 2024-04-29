@@ -41,9 +41,16 @@
               <div class="alert alert-danger">{{ $message }}</div>
            @enderror
 </div>
-<div class="p-3">
-<button type="submit" class="btn btn-primary">Submit</button>
-</div>
+<div class="container">
+            <div class="row">
+                <button type="submit" class="btn btn-primary">Edit</button>
+                <a href="{{ route('pelajar.index') }}" style="margin-left: 10px" >
+                    <button class="btn btn-warning">Kembali</button>
+                </a>
+            </div>
+        </div>
+
+
 
 </form>
 @endsection

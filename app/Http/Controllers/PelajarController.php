@@ -1,22 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
-use RealRashid\SweetAlert\Facades\Alert;
+use RealRashid\SweetAlert\Facades\Alert as SweetAlert;
 use Illuminate\Http\Request;
 use illuminate\Support\Facades\DB;
-use App\Models\Pelajar;
+use App\Models\pelajar;
 
-class PelajarController extends Controller
+class pelajarController extends Controller
 {
     public function index()
     {
-        $pelajars = Pelajar::all();
-        return view('pelajar.index', compact('pelajars'));
+        $pelajar = pelajar::all();
+        return view('pelajar.index', compact('pelajar'));
     }
 
     public function create()
     {
-        return view('pelajar.create');
+        return view('pelajar.tambahpelajar');
     }
 
     public function store(Request $request)
@@ -28,14 +28,14 @@ class PelajarController extends Controller
             'alamat' => 'required',
         ]);
 
-        Pelajar::create($request->all());
-        Alert::success('Success', 'Data Berhasil');
-        return redirect()->route('pelajar.index')->with('success', 'Pelajar berhasil ditambahkan.');
+        pelajar::create($request->all());
+        SweetAlert::success('Success', 'Data Berhasil');
+        return redirect()->route('pelajar.index')->with('success', 'pelajar berhasil ditambahkan.');
     }
 
     public function edit($id)
     {
-        $pelajar = Pelajar::findOrFail($id);
+        $pelajar = pelajar::findOrFail($id);
         return view('pelajar.edit', compact('pelajar'));
     }
 
@@ -48,7 +48,7 @@ class PelajarController extends Controller
             'alamat' => 'required',
         ]);
 
-        $pelajar = Pelajar::findOrFail($id);
+        $pelajar = pelajar::findOrFail($id);
         $pelajar->update($request->all());
 
         return redirect()->route('pelajar.index')->with('success', 'Data pelajar berhasil diperbarui.');
@@ -56,7 +56,7 @@ class PelajarController extends Controller
 
     public function destroy($id)
     {
-        $pelajar = Pelajar::findOrFail($id);
+        $pelajar = pelajar::findOrFail($id);
         $pelajar->delete();
 
         return redirect()->route('pelajar.index')->with('success', 'Data pelajar berhasil dihapus.');
