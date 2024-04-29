@@ -19,7 +19,7 @@ use App\Http\Controllers\PelajarController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landingpage');
 });
 
 // Route untuk CRUD pelajar
@@ -43,3 +43,4 @@ Route::get('/pelanggan', [PelangganController::class, 'pelanggan']);
 Route::get('/pelanggan/{pelanggan_id}', [PelangganController::class, 'show']);
 Route::get('/pelanggan/{pelanggan_id}/edit', [PelangganController::class, 'edit']);
 Route::get('/pelanggan/{pelanggan_id}', [PelangganController::class, 'update']);
+
